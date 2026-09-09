@@ -12,16 +12,17 @@ import {
   Sparkles,
   ArrowRight,
   ShieldAlert,
-  FileCheck
+  FileCheck,
+  ExternalLink
 } from "lucide-react";
-import { CASE_STUDIES, DEEP_SCENARIOS } from "../data/content";
+import { CASE_STUDIES, DEEP_SCENARIOS, COMPANY_INFO } from "../data/content";
 
 interface CasesSectionProps {
-  onOpenConsultant: () => void;
+  onOpenConsultant?: () => void;
   onScrollToContact: () => void;
 }
 
-export const CasesSection: React.FC<CasesSectionProps> = ({ onOpenConsultant, onScrollToContact }) => {
+export const CasesSection: React.FC<CasesSectionProps> = ({ onScrollToContact }) => {
   const [selectedScenarioTab, setSelectedScenarioTab] = useState<string>("medical");
 
   const iconMap: Record<string, React.ElementType> = {
@@ -48,7 +49,7 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ onOpenConsultant, on
             다양한 업종에서 이미 시작하고 있습니다
           </h2>
           <p className="text-base sm:text-lg text-slate-600">
-            실제 현장에서 고객이 묻는 질문에 정확하게 답변하고 예약 및 매출로 연결합니다.
+            실제 현장에서 고객이 묻는 질문에 정확하게 답변하고 상담 및 매출로 연결합니다.
           </p>
         </div>
 
@@ -110,20 +111,23 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ onOpenConsultant, on
                 {/* Bottom Card Action */}
                 <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
                   <span className="text-slate-500">24시간 자동 응대</span>
-                  <button
-                    onClick={onOpenConsultant}
+                  <a
+                    href={COMPANY_INFO.aiChat24hUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-blue-600 font-bold hover:underline flex items-center gap-1"
+                    title="24시간 AI 상담 실시간 대화방에서 테스트하기"
                   >
-                    <span>이 시나리오 테스트</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </button>
+                    <span>24시간 AI 상담에서 질문하기</span>
+                    <ExternalLink className="w-3 h-3 text-blue-500" />
+                  </a>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Deep Industry Scenarios (Gemini Gems Instruction Specifics) */}
+        {/* Deep Industry Scenarios (24시간 AI 상담) */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-slate-100 pb-5">
             <div>

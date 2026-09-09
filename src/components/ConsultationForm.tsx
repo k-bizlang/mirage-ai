@@ -10,7 +10,7 @@ interface ConsultationFormProps {
 }
 
 export const ConsultationForm: React.FC<ConsultationFormProps> = ({
-  initialPlan = "표준형",
+  initialPlan = "STANDARD (기본형)",
   onOpenAdmin,
   onLeadSubmitted,
 }) => {
@@ -100,7 +100,7 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-400 font-medium">전화 상담 직통 (최호열 대표)</div>
+                  <div className="text-xs text-slate-400 font-medium">전화 상담 직통 (최호열, 신기욱 대표)</div>
                   <div className="text-lg sm:text-xl font-bold text-white tracking-tight">
                     {COMPANY_INFO.phone}
                   </div>
@@ -133,10 +133,10 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
             <div className="p-4 rounded-xl bg-blue-950/60 border border-blue-800/60 text-xs text-blue-200 space-y-1">
               <div className="font-bold text-white flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>100% 무료 사전 진단 및 맞춤 데모 시연</span>
+                <span>100% 무료 사전 진단 및 맞춤 도입 컨설팅</span>
               </div>
               <p className="text-blue-300/80">
-                상담 신청 후 무리한 가입 권유 없이, 실제 운영 시뮬레이션 결과와 견적서를 먼저 전달해 드립니다.
+                상담 신청 후 무리한 가입 권유 없이, 실제 운영 시뮬레이션 결과와 맞춤 견적서를 먼저 전달해 드립니다.
               </p>
             </div>
           </div>
@@ -294,23 +294,28 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
 
                 {/* Plan Selection */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-700 block">
-                    관심 상품 선택
-                  </label>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs font-bold text-slate-700 block">
+                      관심 상품 선택
+                    </label>
+                    <span className="text-[10px] text-amber-600 font-semibold">
+                      ※ 정확한 금액은 상담을 통하여 최종 금액이 결정됩니다.
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {PRICING_PLANS.map((plan) => (
                       <button
                         type="button"
                         key={plan.id}
                         onClick={() => setFormData({ ...formData, plan: plan.name })}
-                        className={`py-2 px-2.5 rounded-xl text-xs font-bold border transition-all ${
+                        className={`py-2 px-2 rounded-xl text-xs font-bold border transition-all text-center ${
                           formData.plan === plan.name
                             ? "bg-blue-600 text-white border-blue-600 shadow-xs"
                             : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                         }`}
                       >
-                        <div>{plan.name}</div>
-                        <div className={`text-[10px] font-normal ${formData.plan === plan.name ? "text-blue-100" : "text-slate-500"}`}>
+                        <div className="truncate">{plan.name}</div>
+                        <div className={`text-[10px] font-normal mt-0.5 ${formData.plan === plan.name ? "text-blue-100" : "text-slate-500"}`}>
                           {plan.price}
                         </div>
                       </button>

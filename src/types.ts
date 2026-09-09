@@ -1,13 +1,22 @@
 export interface PricingPlan {
-  id: "basic" | "standard" | "premium";
+  id: "entry" | "standard" | "deluxe" | "premium" | string;
   name: string;
-  price: string;
+  price: string; // 월 이용료 (예: "월 69,000원")
   monthlyPrice: number;
+  setupFee?: string; // 초기 세팅비 (예: "220,000원")
+  contractPeriod?: string; // 의무계약기간
   badge?: string;
   isPopular?: boolean;
   description: string;
   features: string[];
   buttonText: string;
+}
+
+export interface AdoptionChecklistItem {
+  category: string; // 분류 (계정, 지식 베이스, 상담 로직, 정책/인증, 운영 설정, 홍보 자료)
+  requiredItem: string; // 필수 준비 항목
+  description: string; // 상세 내용
+  iconName?: string;
 }
 
 export interface CaseStudy {

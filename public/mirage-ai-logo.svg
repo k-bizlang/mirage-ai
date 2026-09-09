@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Brushed Metal Gradient for Diamond Body -->
+    <linearGradient id="brushedMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2E8F0" />
+      <stop offset="25%" stop-color="#CBD5E1" />
+      <stop offset="50%" stop-color="#F1F5F9" />
+      <stop offset="75%" stop-color="#94A3B8" />
+      <stop offset="100%" stop-color="#CBD5E1" />
+    </linearGradient>
+
+    <!-- Outer Copper/Bronze Edge Gradient -->
+    <linearGradient id="copperEdge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B45309" />
+      <stop offset="30%" stop-color="#D97706" />
+      <stop offset="70%" stop-color="#78350F" />
+      <stop offset="100%" stop-color="#92400E" />
+    </linearGradient>
+
+    <!-- Neon Glow Gradient (Purple to Cyan/Blue) -->
+    <linearGradient id="neonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8" />
+      <stop offset="40%" stop-color="#A855F7" />
+      <stop offset="70%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+
+    <!-- Soft Drop Shadow for Diamond Badge -->
+    <filter id="badgeShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#0F172A" flood-opacity="0.35" />
+    </filter>
+
+    <!-- Spark Glow Filter -->
+    <filter id="sparkGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer Shadow & Diamond Outer Rim (Rotated 45 deg) -->
+  <g filter="url(#badgeShadow)">
+    <!-- Outer Copper Rim -->
+    <rect x="58" y="58" width="284" height="284" rx="42" ry="42" transform="rotate(45 200 200)" fill="url(#copperEdge)" stroke="#451A03" stroke-width="2" />
+    
+    <!-- Inner Steel Plate -->
+    <rect x="66" y="66" width="268" height="268" rx="36" ry="36" transform="rotate(45 200 200)" fill="url(#brushedMetal)" stroke="#64748B" stroke-width="3" />
+  </g>
+
+  <!-- Corner Screws / Rivets -->
+  <!-- Top Corner Screw -->
+  <circle cx="200" cy="38" r="8" fill="#94A3B8" stroke="#475569" stroke-width="2" />
+  <circle cx="200" cy="38" r="4" fill="#334155" />
+
+  <!-- Bottom Corner Screw -->
+  <circle cx="200" cy="362" r="8" fill="#94A3B8" stroke="#475569" stroke-width="2" />
+  <circle cx="200" cy="362" r="4" fill="#334155" />
+
+  <!-- Left Corner Screw -->
+  <circle cx="38" cy="200" r="8" fill="#94A3B8" stroke="#475569" stroke-width="2" />
+  <circle cx="38" cy="200" r="4" fill="#334155" />
+
+  <!-- Right Corner Screw -->
+  <circle cx="362" cy="200" r="8" fill="#94A3B8" stroke="#475569" stroke-width="2" />
+  <circle cx="362" cy="200" r="4" fill="#334155" />
+
+  <!-- Inner Neon Frame Tube -->
+  <rect x="86" y="86" width="228" height="228" rx="28" ry="28" transform="rotate(45 200 200)" fill="none" stroke="url(#neonGlow)" stroke-width="5" filter="url(#sparkGlow)" opacity="0.95" />
+
+  <!-- Inner Metallic Bezel -->
+  <rect x="94" y="94" width="212" height="212" rx="22" ry="22" transform="rotate(45 200 200)" fill="#E2E8F0" fill-opacity="0.25" stroke="#94A3B8" stroke-width="1.5" />
+
+  <!-- TOP TEXT: "MIRAGE AI" (Embossed Curved/Centered) -->
+  <g id="top-text">
+    <text x="200" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="21" letter-spacing="3" text-anchor="middle" fill="#1E293B" opacity="0.95">
+      MIRAGE AI
+    </text>
+    <text x="200.5" y="77.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="21" letter-spacing="3" text-anchor="middle" fill="#FFFFFF" opacity="0.4">
+      MIRAGE AI
+    </text>
+  </g>
+
+  <!-- AI Brain / Circuit Network Illustration (Top Center) -->
+  <g id="brain-network" transform="translate(130, 95) scale(0.7)">
+    <!-- Circuit lines -->
+    <path d="M40 70 Q70 30 100 40 T160 70" fill="none" stroke="#475569" stroke-width="2.5" stroke-dasharray="3,3" />
+    <path d="M60 90 Q100 60 140 90" fill="none" stroke="#475569" stroke-width="2" />
+    
+    <!-- Brain outline silhouette stylized -->
+    <path d="M50 85 C40 60 65 35 100 35 C135 35 160 60 150 85 C160 110 135 130 100 130 C65 130 40 110 50 85 Z" fill="#F8FAFC" fill-opacity="0.8" stroke="#334155" stroke-width="3" />
+    
+    <!-- Brain center chip badge with "AI" -->
+    <rect x="80" y="65" width="40" height="36" rx="6" fill="#1E293B" stroke="#64748B" stroke-width="2" />
+    <text x="100" y="89" font-family="sans-serif" font-weight="900" font-size="16" fill="#F8FAFC" text-anchor="middle">AI</text>
+    
+    <!-- Brain network node dots -->
+    <circle cx="65" cy="55" r="4" fill="#3B82F6" />
+    <circle cx="135" cy="55" r="4" fill="#6366F1" />
+    <circle cx="60" cy="105" r="4" fill="#0EA5E9" />
+    <circle cx="140" cy="105" r="4" fill="#8B5CF6" />
+    <circle cx="100" cy="45" r="4" fill="#10B981" />
+    <circle cx="100" cy="120" r="4" fill="#EC4899" />
+
+    <!-- Connecting network lines -->
+    <line x1="65" y1="55" x2="80" y2="75" stroke="#64748B" stroke-width="1.5" />
+    <line x1="135" y1="55" x2="120" y2="75" stroke="#64748B" stroke-width="1.5" />
+    <line x1="60" y1="105" x2="80" y2="95" stroke="#64748B" stroke-width="1.5" />
+    <line x1="140" y1="105" x2="120" y2="95" stroke="#64748B" stroke-width="1.5" />
+
+    <!-- Mini chart left -->
+    <g transform="translate(-10, 45) scale(0.6)">
+      <line x1="0" y1="30" x2="35" y2="30" stroke="#475569" stroke-width="2" />
+      <line x1="0" y1="30" x2="0" y2="0" stroke="#475569" stroke-width="2" />
+      <rect x="5" y="18" width="6" height="12" fill="#64748B" />
+      <rect x="14" y="12" width="6" height="18" fill="#64748B" />
+      <rect x="23" y="5" width="6" height="25" fill="#334155" />
+      <polyline points="5,15 15,10 25,3" fill="none" stroke="#2563EB" stroke-width="2" />
+    </g>
+
+    <!-- Mini pie/gear right -->
+    <g transform="translate(165, 45) scale(0.6)">
+      <circle cx="15" cy="15" r="14" fill="none" stroke="#475569" stroke-width="3" />
+      <path d="M15 15 L28 20 A14 14 0 0 0 15 1 Z" fill="#64748B" />
+    </g>
+  </g>
+
+  <!-- Horizontal Metallic Divider Line with LED highlight -->
+  <line x1="110" y1="236" x2="290" y2="236" stroke="#475569" stroke-width="2" opacity="0.6" />
+  <line x1="150" y1="236" x2="250" y2="236" stroke="#38BDF8" stroke-width="2" filter="url(#sparkGlow)" opacity="0.8" />
+
+  <!-- Center Hands: Robot Hand (Left) and Human Golden Hand (Right) Reaching Out -->
+  <g id="creation-hands" transform="translate(0, 10)">
+    <!-- LEFT: Cybernetic Robot Hand (Silver/Chrome) -->
+    <g id="robot-hand">
+      <!-- Arm Cuff / Forearm -->
+      <path d="M55 190 L95 186 L110 204 L55 208 Z" fill="#94A3B8" stroke="#334155" stroke-width="2" />
+      <!-- Wrist Segment -->
+      <rect x="106" y="185" width="16" height="24" rx="4" fill="#CBD5E1" stroke="#334155" stroke-width="2" />
+      <!-- Robotic Palm Chassis -->
+      <path d="M122 184 C132 184 145 188 152 196 L150 208 C142 214 130 214 122 210 Z" fill="#E2E8F0" stroke="#334155" stroke-width="2.5" />
+      <!-- Robotic Knuckles & Fingers reaching right -->
+      <!-- Index finger pointing towards center -->
+      <path d="M152 192 L172 188 L188 191 L198 196" fill="none" stroke="#64748B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M152 192 L172 188 L188 191 L198 196" fill="none" stroke="#E2E8F0" stroke-width="2.5" stroke-linecap="round" />
+      <!-- Finger Joint Rings -->
+      <circle cx="172" cy="188" r="2.5" fill="#3B82F6" />
+      <circle cx="188" cy="191" r="2" fill="#3B82F6" />
+      <circle cx="198" cy="196" r="2.5" fill="#60A5FA" />
+      <!-- Other curved robotic fingers -->
+      <path d="M150 198 L168 197 L182 204 L188 212" fill="none" stroke="#64748B" stroke-width="4" stroke-linecap="round" />
+      <path d="M146 205 L162 208 L174 218" fill="none" stroke="#64748B" stroke-width="3.5" stroke-linecap="round" />
+      <path d="M136 210 L148 216 L158 225" fill="none" stroke="#64748B" stroke-width="3" stroke-linecap="round" />
+    </g>
+
+    <!-- CENTER: Electric Spark / Lightning Discharge between fingertips -->
+    <g id="spark" filter="url(#sparkGlow)">
+      <!-- Lightning zig-zag -->
+      <polyline points="198,196 203,191 201,198 207,193 205,200 211,195 215,198" fill="none" stroke="#A855F7" stroke-width="3" />
+      <polyline points="198,196 204,193 203,197 208,194 207,199 212,196 215,198" fill="none" stroke="#38BDF8" stroke-width="1.5" />
+      <!-- Central Energy Burst -->
+      <circle cx="206" cy="196" r="4.5" fill="#FFFFFF" />
+      <circle cx="206" cy="196" r="9" fill="#C084FC" fill-opacity="0.5" />
+      <circle cx="206" cy="196" r="15" fill="#38BDF8" fill-opacity="0.25" />
+      <!-- Spark lines radiating -->
+      <line x1="206" y1="184" x2="206" y2="190" stroke="#E0E7FF" stroke-width="1.5" />
+      <line x1="206" y1="202" x2="206" y2="208" stroke="#E0E7FF" stroke-width="1.5" />
+      <line x1="194" y1="190" x2="200" y2="193" stroke="#E0E7FF" stroke-width="1.5" />
+      <line x1="212" y1="199" x2="218" y2="202" stroke="#E0E7FF" stroke-width="1.5" />
+    </g>
+
+    <!-- RIGHT: Human Hand (Warm Gold/Bronze Tone) Reaching Left -->
+    <g id="human-hand">
+      <!-- Forearm -->
+      <path d="M345 190 L305 186 L290 204 L345 208 Z" fill="#D97706" stroke="#78350F" stroke-width="2" />
+      <!-- Wrist -->
+      <rect x="278" y="185" width="16" height="24" rx="4" fill="#F59E0B" stroke="#78350F" stroke-width="1.5" />
+      <!-- Palm -->
+      <path d="M278 184 C268 184 255 188 248 196 L250 208 C258 214 270 214 278 210 Z" fill="#FBBF24" stroke="#78350F" stroke-width="2" />
+      <!-- Index Finger reaching toward spark -->
+      <path d="M248 192 L232 192 L222 195 L215 198" fill="none" stroke="#B45309" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M248 192 L232 192 L222 195 L215 198" fill="none" stroke="#FDE68A" stroke-width="2.5" stroke-linecap="round" />
+      <!-- Fingertip glow highlight -->
+      <circle cx="215" cy="198" r="2.5" fill="#FDE047" />
+      <!-- Other human fingers softly curled -->
+      <path d="M250 199 L236 202 L226 210 L224 218" fill="none" stroke="#B45309" stroke-width="4.5" stroke-linecap="round" />
+      <path d="M254 205 L242 210 L234 220" fill="none" stroke="#B45309" stroke-width="4" stroke-linecap="round" />
+      <path d="M260 210 L250 217 L244 226" fill="none" stroke="#B45309" stroke-width="3.5" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- BOTTOM TEXT: "MIRAGE AI" (Bold Embossed in Dark Steel) -->
+  <g id="bottom-text">
+    <text x="200" y="278" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="28" letter-spacing="4" text-anchor="middle" fill="#0F172A">
+      MIRAGE
+    </text>
+    <text x="200" y="312" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" letter-spacing="6" text-anchor="middle" fill="#0F172A">
+      AI
+    </text>
+    <!-- Subtle 3D Highlight shadow for embossing -->
+    <text x="200.5" y="277.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="28" letter-spacing="4" text-anchor="middle" fill="#FFFFFF" opacity="0.35">
+      MIRAGE
+    </text>
+    <text x="200.5" y="311.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" letter-spacing="6" text-anchor="middle" fill="#FFFFFF" opacity="0.35">
+      AI
+    </text>
+  </g>
+
+  <!-- Surrounding Tech Engravings / Icons along the bezel -->
+  <g fill="none" stroke="#64748B" stroke-width="1.5" opacity="0.75">
+    <!-- Lightbulb (Innovation) bottom left -->
+    <g transform="translate(115, 275) scale(0.6)">
+      <circle cx="10" cy="10" r="7" />
+      <line x1="8" y1="17" x2="12" y2="17" />
+      <line x1="8" y1="20" x2="12" y2="20" />
+    </g>
+    <!-- Graph chart bottom left -->
+    <g transform="translate(75, 230) scale(0.6)">
+      <polyline points="0,20 8,12 16,16 24,4" />
+      <line x1="0" y1="22" x2="26" y2="22" />
+    </g>
+    <!-- Chip Icon bottom right -->
+    <g transform="translate(255, 290) scale(0.6)">
+      <rect x="5" y="5" width="18" height="18" rx="2" />
+      <text x="14" y="17" font-family="sans-serif" font-size="7" font-weight="bold" fill="#64748B" text-anchor="middle">AI</text>
+    </g>
+    <!-- Network Hierarchy Icon bottom right -->
+    <g transform="translate(290, 240) scale(0.6)">
+      <circle cx="14" cy="5" r="3" />
+      <circle cx="5" cy="18" r="3" />
+      <circle cx="23" cy="18" r="3" />
+      <line x1="14" y1="8" x2="6" y2="15" />
+      <line x1="14" y1="8" x2="22" y2="15" />
+    </g>
+  </g>
+
+</svg>

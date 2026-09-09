@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { X, Send, Bot, User, Sparkles, ExternalLink, RefreshCw, Phone, ShieldCheck, ChevronRight } from "lucide-react";
+import { X, Send, Bot, User, Sparkles, ExternalLink, RefreshCw, Phone, ShieldCheck, ChevronRight, UserPlus } from "lucide-react";
 import { COMPANY_INFO, OFFICIAL_RESOURCES } from "../data/content";
 import { ChatMessage } from "../types";
 
@@ -15,7 +15,7 @@ export const AiConsultantModal: React.FC<AiConsultantModalProps> = ({ isOpen, on
   const [turnCount, setTurnCount] = useState(1);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Initialize with initial State A from PDF instructions
+  // Initialize with initial State A from PDF instructions, Google signup, and 24시간 AI 상담 link
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       setMessages([
@@ -25,8 +25,18 @@ export const AiConsultantModal: React.FC<AiConsultantModalProps> = ({ isOpen, on
           text: `[MIRAGE AI] 고객응대 시스템은 24시간 실시간 고객 문의를 자동화하여 매출과 상담 전환율을 극대화합니다.
 업종별 맞춤형 시나리오와 자주 묻는 질문(FAQ)을 완벽히 연동하여 야간 및 주말 상담 이탈률을 0%에 가깝게 낮출 수 있습니다.
 
-"[MIRAGE AI]는 귀사의 사내 문서와 FAQ를 실시간 연동하는 비즈니스 특화 AI 상담원입니다 본 상담창은 핵심 단어 입력 방식으로 최적화되어 있으니, 지금 화면 하단에 '도입 비용', '카카오톡 연동', '자료 다운로드' 등 궁금하신 주제를 한두 단어로 짧게 입력해 주시면 즉시 관련 상세 데이터와 공식 하이퍼링크 단추를 안내해 드리겠습니다"`,
+💡 안내: AI 24시 고객응대 미가입자는 구글 계정으로 먼저 가입 후 솔루션을 이용하실 수 있습니다. 가입 완료 후 24시간 AI 상담 실시간 1:1 대화방으로 바로 연결됩니다.`,
           timestamp: "방금 전",
+          links: [
+            {
+              title: "👤 [1단계] 미가입자 구글 계정 가입하기",
+              url: COMPANY_INFO.googleSignUpUrl,
+            },
+            {
+              title: "🚀 [2단계] 24시간 AI 상담 실시간 1:1 대화방 바로 연결",
+              url: COMPANY_INFO.aiChat24hUrl,
+            },
+          ],
         },
       ]);
     }
@@ -39,6 +49,7 @@ export const AiConsultantModal: React.FC<AiConsultantModalProps> = ({ isOpen, on
   if (!isOpen) return null;
 
   const quickPills = [
+    "⚡ 24시간 AI 상담 연결",
     "도입 비용",
     "병원 데모",
     "숙박업 데모",
@@ -64,6 +75,38 @@ export const AiConsultantModal: React.FC<AiConsultantModalProps> = ({ isOpen, on
     setLoading(true);
 
     try {
+      const lower = query.toLowerCase();
+
+      // If user directly clicked or asked for 24시간 AI 상담 connection
+      if (
+        lower.includes("24시간") ||
+        lower.includes("ai상담") ||
+        lower.includes("ai 상담") ||
+        lower.includes("실시간 상담") ||
+        lower.includes("상담 연결")
+      ) {
+        const directAiMsg: ChatMessage = {
+          id: `ai-${Date.now()}`,
+          sender: "ai",
+          text: `[MIRAGE AI] 24시간 AI 상담 실시간 1:1 대화방으로 바로 연결해 드립니다.
+AI 24시 고객응대 솔루션 미가입자는 구글 계정으로 먼저 가입 후 이용 가능하며, 가입 완료 후 24시간 AI 상담에서 자유롭게 실시간 대화를 나누실 수 있습니다.`,
+          timestamp: new Date().toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" }),
+          links: [
+            {
+              title: "👤 [1단계] 미가입자 구글 계정 가입하기",
+              url: COMPANY_INFO.googleSignUpUrl,
+            },
+            {
+              title: "👉 [2단계] 24시간 AI 상담 실시간 1:1 대화 바로 시작",
+              url: COMPANY_INFO.aiChat24hUrl,
+            },
+          ],
+        };
+        setMessages((prev) => [...prev, directAiMsg]);
+        setLoading(false);
+        return;
+      }
+
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -79,7 +122,6 @@ export const AiConsultantModal: React.FC<AiConsultantModalProps> = ({ isOpen, on
 
       // Attach relevant official link if matched keywords from PDF
       let matchedLinks: { title: string; url: string }[] | undefined = undefined;
-      const lower = query.toLowerCase();
 
       if (lower.includes("자료") || lower.includes("다운로드") || lower.includes("제안서") || lower.includes("소개서")) {
         matchedLinks = [
@@ -123,7 +165,7 @@ export const AiConsultantModal: React.FC<AiConsultantModalProps> = ({ isOpen, on
         id: `ai-${Date.now()}`,
         sender: "ai",
         text: `문의해 주신 내용에 대해 [MIRAGE AI]의 비즈니스 컨설턴트가 최적의 맞춤 솔루션을 설계해 드립니다.
-상세한 견적 및 사내 데이터 연동은 대표자 최호열(010-8267-3733) 또는 mymirage1@naver.com으로 연락 주시면 즉시 안내해 드리겠습니다.`,
+상세한 견적 및 사내 데이터 연동은 대표자 최호열, 신기욱(010-8267-3733) 또는 mymirage1@naver.com으로 연락 주시면 즉시 안내해 드리겠습니다.`,
         timestamp: new Date().toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" }),
       };
       setMessages((prev) => [...prev, fallbackAiMsg]);
@@ -180,23 +222,37 @@ export const AiConsultantModal: React.FC<AiConsultantModalProps> = ({ isOpen, on
           </div>
         </div>
 
-        {/* Top Google Sites Official Agent Notice */}
-        <div className="bg-blue-50 border-b border-blue-200/80 px-4 py-2.5 flex items-center justify-between text-xs text-blue-900">
-          <div className="flex items-center gap-2 truncate">
-            <span className="w-2 h-2 rounded-full bg-blue-600"></span>
-            <span className="font-medium truncate">
-              Google 계정으로 시작하는 공식 상담 AI 바로가기
+        {/* Top 24시간 AI 상담 Callout Banner */}
+        <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-sky-50 border-b border-blue-200/90 px-3 sm:px-4 py-2 flex items-center justify-between gap-2 text-xs flex-wrap">
+          <div className="flex items-center gap-1.5 truncate">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+            <span className="font-extrabold text-slate-800 text-[11px] sm:text-xs truncate">
+              미가입자는 구글 가입 후 24시간 AI 상담 이용 가능
             </span>
           </div>
-          <a
-            href={COMPANY_INFO.externalAgentUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold text-blue-700 hover:text-blue-900 hover:underline flex items-center gap-1 shrink-0 ml-2"
-          >
-            <span>열기</span>
-            <ExternalLink className="w-3 h-3" />
-          </a>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <a
+              href={COMPANY_INFO.googleSignUpUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white hover:bg-slate-100 text-slate-700 font-bold text-[11px] border border-slate-300 transition-all active:scale-95"
+              title="미가입자 구글 계정 가입"
+            >
+              <UserPlus className="w-3 h-3 text-blue-600" />
+              <span>구글가입</span>
+            </a>
+            <a
+              href={COMPANY_INFO.aiChat24hUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-black text-[11px] shadow-xs transition-all active:scale-95"
+              title="24시간 AI 상담 실시간 1:1 대화를 시작합니다"
+            >
+              <Sparkles className="w-3 h-3 text-amber-300" />
+              <span>24시간 AI 상담</span>
+              <ExternalLink className="w-3 h-3 text-blue-200" />
+            </a>
+          </div>
         </div>
 
         {/* Chat Messages Body */}

@@ -1,6 +1,6 @@
 {
   "name": "MIRAGE AI - 24시간 AI 고객응대 솔루션",
-  "description": "에이아이파트너스 MIRAGE AI: 24시간 쉬지 않는 비즈니스 맞춤형 자동 고객 응대 홈페이지 솔루션",
+  "description": "MIRAGE AI: 글로벌 비즈니스 통합 AI 세일즈 자동화 엔진 (한국저작권위원회 C-2026-017543 호 등록)",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

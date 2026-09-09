@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
+import { DashboardShowcase } from "./components/DashboardShowcase";
+import { CopyrightCertificateSection } from "./components/CopyrightCertificateSection";
 import { ValuePillars } from "./components/ValuePillars";
 import { FeaturesSection } from "./components/FeaturesSection";
 import { CasesSection } from "./components/CasesSection";
 import { PricingSection } from "./components/PricingSection";
+import { AdoptionGuideSection } from "./components/AdoptionGuideSection";
 import { StepsSection } from "./components/StepsSection";
 import { OfficialAgentBanner } from "./components/OfficialAgentBanner";
 import { ConsultationForm } from "./components/ConsultationForm";
 import { AiConsultantModal } from "./components/AiConsultantModal";
 import { AdminLeadsModal } from "./components/AdminLeadsModal";
 import { Footer } from "./components/Footer";
-import { Bot, Phone, Sparkles, MessageSquare, ArrowUp, ClipboardList } from "lucide-react";
+import { FixedQuickBar } from "./components/FixedQuickBar";
+import { Bot, Phone, Sparkles, MessageSquare, ArrowUp, ClipboardList, ExternalLink } from "lucide-react";
 import { COMPANY_INFO } from "./data/content";
 
 export default function App() {
   const [isConsultantOpen, setIsConsultantOpen] = useState(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<string>("표준형");
+  const [selectedPlan, setSelectedPlan] = useState<string>("STANDARD (기본형)");
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [leadCounts, setLeadCounts] = useState<{ total: number; newCount: number }>({
     total: 0,
@@ -78,32 +82,46 @@ export default function App() {
 
       {/* Main landing sections */}
       <main className="flex-1">
-        {/* Hero Section matching image.png */}
+        {/* Hero Section */}
         <HeroSection
+          onScrollToContact={() => scrollToContact()}
+        />
+
+        {/* Live Metrics Dashboard Section (Matching Main Image) */}
+        <DashboardShowcase
           onOpenConsultant={() => setIsConsultantOpen(true)}
           onScrollToContact={() => scrollToContact()}
+        />
+
+        {/* Official Copyright Certificate Section (Matching Image-1) */}
+        <CopyrightCertificateSection
+          onScrollToContact={() => scrollToContact()}
+          onOpenConsultant={() => setIsConsultantOpen(true)}
         />
 
         {/* 4 Value Pillars Bar & Company Intro */}
         <ValuePillars />
 
-        {/* Section 2: AI 24시 고객응대 프로그램 */}
+        {/* Section 2: 상담 AI 핵심 기능 및 산업별 효율성 (Matching Image-2) */}
         <FeaturesSection
           onOpenConsultant={() => setIsConsultantOpen(true)}
           onScrollToContact={() => scrollToContact()}
         />
 
-        {/* Section 4: 상품 및 요금 (Placed before/after cases as in image) */}
+        {/* Section 3: 서비스 제공 절차 및 연동 채널 (Matching Image-3) */}
+        <StepsSection onScrollToContact={() => scrollToContact()} />
+
+        {/* Section 4: 합리적인 도입 플랜 (상세 이용 요금표) */}
         <PricingSection onSelectPlan={(plan) => scrollToContact(plan)} />
 
-        {/* Section 3: 적용사례 */}
+        {/* Section: MIRAGE AI 도입을 위한 안내 (구축 준비 체크리스트) */}
+        <AdoptionGuideSection onScrollToContact={() => scrollToContact()} />
+
+        {/* Section: 업종별 실제 적용사례 */}
         <CasesSection
           onOpenConsultant={() => setIsConsultantOpen(true)}
           onScrollToContact={() => scrollToContact()}
         />
-
-        {/* 5-Step Process */}
-        <StepsSection onScrollToContact={() => scrollToContact()} />
 
         {/* Dedicated Google Sites Official Agent Section */}
         <OfficialAgentBanner onOpenConsultant={() => setIsConsultantOpen(true)} />
@@ -137,7 +155,7 @@ export default function App() {
       />
 
       {/* Floating Action Elements (Bottom Right) */}
-      <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2.5">
+      <div className="fixed bottom-20 sm:bottom-20 right-4 sm:right-6 z-40 flex flex-col items-end gap-2.5">
         
         {/* Back to top button */}
         {showBackToTop && (
@@ -173,7 +191,7 @@ export default function App() {
         <a
           href={COMPANY_INFO.telLink}
           className="hidden sm:flex items-center gap-2 py-2 px-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 shadow-md border border-slate-200 text-xs font-bold transition-all hover:scale-105 group"
-          title="최호열 대표 직통 전화 연결"
+          title="최호열, 신기욱 대표 직통 전화 연결"
         >
           <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
             <Phone className="w-3 h-3" />
@@ -181,12 +199,14 @@ export default function App() {
           <span>010-8267-3733</span>
         </a>
 
-        {/* Primary AI Consultant Launcher Floating Button */}
-        <button
+        {/* Primary AI Consultant Launcher Floating Button -> Direct 24h AI Link */}
+        <a
           id="floating-ai-consultant-btn"
-          onClick={() => setIsConsultantOpen(true)}
+          href={COMPANY_INFO.aiChat24hUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="group relative flex items-center gap-2.5 px-4 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white shadow-xl shadow-blue-600/35 border-2 border-white/20 transition-all hover:scale-105 active:scale-95"
-          title="24시 MIRAGE AI 상담원 호출"
+          title="24시간 AI 상담 실시간 1:1 대화방으로 즉시 연결"
         >
           {/* Pulsing indicator */}
           <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
@@ -198,15 +218,19 @@ export default function App() {
             <Bot className="w-4 h-4 text-white" />
           </div>
           <div className="text-left hidden sm:block">
-            <div className="text-xs font-black tracking-tight leading-none">
-              24시 AI 상담원
+            <div className="text-xs font-black tracking-tight leading-none flex items-center gap-1">
+              <span>24시 AI 상담</span>
+              <ExternalLink className="w-3 h-3 text-blue-200" />
             </div>
             <div className="text-[10px] text-blue-200 font-medium leading-tight mt-0.5">
-              실시간 무료 체험
+              실시간 1:1 대화 연결
             </div>
           </div>
-        </button>
+        </a>
       </div>
+
+      {/* Pinned Bottom Quick Bar for Google Sign-up & 24h AI Chat */}
+      <FixedQuickBar onOpenConsultant={() => setIsConsultantOpen(true)} />
 
     </div>
   );

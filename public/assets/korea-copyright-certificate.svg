@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1130" width="100%" height="100%" style="background-color:#ffffff; font-family:'Nanum Myeongjo', 'Batang', 'Malgun Gothic', 'Apple SD Gothic Neo', serif;">
+  <defs>
+    <!-- Background security guilloche micro-pattern -->
+    <pattern id="bg-security" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0 20 Q 10 0, 20 20 T 40 20" fill="none" stroke="#e0f2fe" stroke-width="0.5" opacity="0.5"/>
+      <path d="M0 20 Q 10 40, 20 20 T 40 20" fill="none" stroke="#e0f2fe" stroke-width="0.5" opacity="0.5"/>
+      <circle cx="20" cy="20" r="1" fill="#bae6fd" opacity="0.4"/>
+    </pattern>
+
+    <!-- Side border floral pattern -->
+    <pattern id="border-lace" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 0,15 C 5,5 10,5 15,15 C 20,25 25,25 30,15" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.7" />
+      <path d="M 15,0 C 5,5 5,10 15,15 C 25,20 25,25 15,30" fill="none" stroke="#0284c7" stroke-width="0.7" opacity="0.6" />
+      <circle cx="15" cy="15" r="2" fill="#0369a1" opacity="0.5" />
+    </pattern>
+
+    <!-- CC Logo Gradient (Bronze Gold) -->
+    <linearGradient id="cc-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b4833e" />
+      <stop offset="35%" stop-color="#d4af37" />
+      <stop offset="70%" stop-color="#aa7c30" />
+      <stop offset="100%" stop-color="#825619" />
+    </linearGradient>
+
+    <!-- Blue Border Gradient -->
+    <linearGradient id="blue-frame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="25%" stop-color="#0284c7" />
+      <stop offset="75%" stop-color="#0369a1" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <!-- Red Seal Shadow -->
+    <filter id="seal-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#7f1d1d" flood-opacity="0.2" />
+    </filter>
+  </defs>
+
+  <!-- Document Paper Background -->
+  <rect width="800" height="1130" fill="#ffffff" />
+  <rect x="25" y="25" width="750" height="1080" fill="url(#bg-security)" />
+
+  <!-- ==================== ORNATE BORDER SYSTEM ==================== -->
+  <!-- Outer hairline -->
+  <rect x="18" y="18" width="764" height="1094" fill="none" stroke="#7dd3fc" stroke-width="1" opacity="0.8" />
+  <!-- Main Blue Lace Band -->
+  <rect x="24" y="24" width="752" height="1082" fill="none" stroke="#0284c7" stroke-width="12" opacity="0.2" />
+  <rect x="24" y="24" width="752" height="1082" fill="none" stroke="#0284c7" stroke-width="2.5" />
+  <rect x="32" y="32" width="736" height="1066" fill="none" stroke="#38bdf8" stroke-width="1.5" />
+  <rect x="36" y="36" width="728" height="1058" fill="none" stroke="#0369a1" stroke-width="0.8" stroke-dasharray="4 2" />
+
+  <!-- Corner Rosettes / Ornaments -->
+  <!-- Top Left -->
+  <g transform="translate(24, 24)">
+    <path d="M 0,0 L 55,0 C 40,15 15,40 0,55 Z" fill="#0284c7" opacity="0.35" />
+    <circle cx="24" cy="24" r="16" fill="none" stroke="#0284c7" stroke-width="1.5" />
+    <circle cx="24" cy="24" r="12" fill="none" stroke="#38bdf8" stroke-width="1" />
+    <circle cx="24" cy="24" r="5" fill="#0369a1" />
+    <path d="M 24,4 L 24,44 M 4,24 L 44,24" stroke="#0284c7" stroke-width="0.8" />
+    <path d="M 10,10 L 38,38 M 10,38 L 38,10" stroke="#38bdf8" stroke-width="0.6" />
+  </g>
+  <!-- Top Right -->
+  <g transform="translate(776, 24) scale(-1, 1)">
+    <path d="M 0,0 L 55,0 C 40,15 15,40 0,55 Z" fill="#0284c7" opacity="0.35" />
+    <circle cx="24" cy="24" r="16" fill="none" stroke="#0284c7" stroke-width="1.5" />
+    <circle cx="24" cy="24" r="12" fill="none" stroke="#38bdf8" stroke-width="1" />
+    <circle cx="24" cy="24" r="5" fill="#0369a1" />
+    <path d="M 24,4 L 24,44 M 4,24 L 44,24" stroke="#0284c7" stroke-width="0.8" />
+    <path d="M 10,10 L 38,38 M 10,38 L 38,10" stroke="#38bdf8" stroke-width="0.6" />
+  </g>
+  <!-- Bottom Left -->
+  <g transform="translate(24, 1106) scale(1, -1)">
+    <path d="M 0,0 L 55,0 C 40,15 15,40 0,55 Z" fill="#0284c7" opacity="0.35" />
+    <circle cx="24" cy="24" r="16" fill="none" stroke="#0284c7" stroke-width="1.5" />
+    <circle cx="24" cy="24" r="12" fill="none" stroke="#38bdf8" stroke-width="1" />
+    <circle cx="24" cy="24" r="5" fill="#0369a1" />
+    <path d="M 24,4 L 24,44 M 4,24 L 44,24" stroke="#0284c7" stroke-width="0.8" />
+    <path d="M 10,10 L 38,38 M 10,38 L 38,10" stroke="#38bdf8" stroke-width="0.6" />
+  </g>
+  <!-- Bottom Right -->
+  <g transform="translate(776, 1106) scale(-1, -1)">
+    <path d="M 0,0 L 55,0 C 40,15 15,40 0,55 Z" fill="#0284c7" opacity="0.35" />
+    <circle cx="24" cy="24" r="16" fill="none" stroke="#0284c7" stroke-width="1.5" />
+    <circle cx="24" cy="24" r="12" fill="none" stroke="#38bdf8" stroke-width="1" />
+    <circle cx="24" cy="24" r="5" fill="#0369a1" />
+    <path d="M 24,4 L 24,44 M 4,24 L 44,24" stroke="#0284c7" stroke-width="0.8" />
+    <path d="M 10,10 L 38,38 M 10,38 L 38,10" stroke="#38bdf8" stroke-width="0.6" />
+  </g>
+
+  <!-- ==================== CENTRAL WATERMARK ==================== -->
+  <g transform="translate(400, 560)" opacity="0.07">
+    <!-- Outer concentric rings -->
+    <circle r="190" fill="none" stroke="#0284c7" stroke-width="3" stroke-dasharray="6 4" />
+    <circle r="175" fill="none" stroke="#0369a1" stroke-width="1.5" />
+    <circle r="135" fill="none" stroke="#0284c7" stroke-width="1" stroke-dasharray="2 2" />
+    <!-- Curved text -->
+    <text y="-85" text-anchor="middle" font-size="20" font-family="'Malgun Gothic', 'Dotum', sans-serif" font-weight="bold" fill="#0369a1" letter-spacing="4">KOREA COPYRIGHT COMMISSION</text>
+    <text y="110" text-anchor="middle" font-size="24" font-family="'Nanum Myeongjo', 'Batang', serif" font-weight="bold" fill="#0369a1" letter-spacing="8">한국저작권위원회</text>
+    <!-- Central emblem -->
+    <circle r="50" fill="none" stroke="#0284c7" stroke-width="2" />
+    <text y="14" text-anchor="middle" font-size="42" font-family="sans-serif" font-weight="900" fill="#0284c7">CC</text>
+  </g>
+
+  <!-- ==================== TOP BAR ==================== -->
+  <!-- Left Registration Number: 제 C-2026-017543 호 -->
+  <text x="68" y="88" font-size="16" font-weight="bold" fill="#111827" font-family="'Nanum Myeongjo', 'Batang', serif">
+    제 <tspan dx="16" font-family="'Liberation Sans', Arial, sans-serif" font-weight="bold">C-2026-017543</tspan> <tspan dx="16">호</tspan>
+  </text>
+
+  <!-- Right Circular Electronic Verification Stamp -->
+  <g transform="translate(695, 92)">
+    <circle r="36" fill="none" stroke="#475569" stroke-width="1.2" />
+    <circle r="33" fill="none" stroke="#94a3b8" stroke-width="0.6" stroke-dasharray="2 2" />
+    <text y="-20" text-anchor="middle" font-size="8" font-family="'Malgun Gothic', sans-serif" fill="#334155" font-weight="bold">대한민국</text>
+    <rect x="-27" y="-14" width="54" height="24" fill="none" stroke="#cbd5e1" stroke-width="0.6" />
+    <text y="-3" text-anchor="middle" font-size="6.5" font-family="'Liberation Sans', sans-serif" fill="#334155" font-weight="bold">2026-04-07</text>
+    <text y="6" text-anchor="middle" font-size="6" font-family="'Liberation Sans', sans-serif" fill="#475569">17:01:50</text>
+    <text y="24" text-anchor="middle" font-size="7.5" font-family="'Malgun Gothic', sans-serif" fill="#1e293b" font-weight="bold">한국저작권위원회</text>
+  </g>
+
+  <!-- ==================== CC EMBLEM ==================== -->
+  <g transform="translate(85, 130)">
+    <!-- Double CC 3D emblem (Stylized golden/bronze) -->
+    <path d="M 42 14 C 28 2 13 8 5 21 C -3 34 2 51 16 59 C 28 66 40 60 45 49 L 31 43 C 28 49 21 51 15 48 C 9 42 8 31 12 22 C 17 14 25 12 30 17 L 42 14 Z" fill="url(#cc-gold)" />
+    <path d="M 72 14 C 58 2 43 8 35 21 C 27 34 32 51 46 59 C 58 66 70 60 75 49 L 61 43 C 58 49 51 51 45 48 C 39 42 38 31 42 22 C 47 14 55 12 60 17 L 72 14 Z" fill="url(#cc-gold)" />
+  </g>
+
+  <!-- ==================== MAIN HEADING ==================== -->
+  <text x="400" y="182" text-anchor="middle" font-size="36" font-weight="900" fill="#000000" font-family="'Nanum Myeongjo', 'Batang', serif" letter-spacing="18">
+    저 작 권   등 록 증
+  </text>
+
+  <!-- ==================== 8 METADATA ITEMS ==================== -->
+  <g transform="translate(88, 275)" font-size="15.5" font-family="'Nanum Myeongjo', 'Batang', serif" fill="#000000">
+    
+    <!-- Item 1: 저작물의 제호(명칭) -->
+    <text x="0" y="0" font-weight="bold">1. 저작물의 제호(명칭)</text>
+    <text x="215" y="0" font-weight="bold" font-family="'Liberation Sans', Arial, sans-serif">Global Business Integrated AI Sales Automation Engine</text>
+    <text x="215" y="24" font-weight="bold">(글로벌 비즈니스 통합 AI 세일즈 자동화 엔진)</text>
+
+    <!-- Item 2: 저작물의 종류 -->
+    <text x="0" y="75" font-weight="bold">2. 저작물의 종류</text>
+    <text x="215" y="75" font-weight="bold">컴퓨터프로그램저작물&gt;응용프로그램&gt;사무관리</text>
+
+    <!-- Item 3: 저작자 성명(법인명) -->
+    <text x="0" y="138" font-weight="bold">3. 저작자 성명(법인명)</text>
+    <text x="215" y="138" font-weight="bold">지속가능경영연구원 대표 신기욱</text>
+    <text x="215" y="162" font-weight="bold">울산광역시 남구 중앙로</text>
+
+    <!-- Item 4: 생년월일(법인등록번호) -->
+    <text x="0" y="215" font-weight="bold">4. 생년월일(법인등록번호)</text>
+    <text x="215" y="215" font-weight="bold">1970년08월29일</text>
+
+    <!-- Item 5: 창작연월일 -->
+    <text x="0" y="275" font-weight="bold">5. 창작연월일</text>
+    <text x="215" y="275" font-weight="bold">2026년02월05일</text>
+
+    <!-- Item 6: 공표연월일 -->
+    <text x="0" y="335" font-weight="bold">6. 공표연월일</text>
+    <text x="215" y="335" font-weight="bold">-</text>
+
+    <!-- Item 7: 등록연월일 -->
+    <text x="0" y="395" font-weight="bold">7. 등록연월일</text>
+    <text x="215" y="395" font-weight="bold">2026년04월07일</text>
+
+    <!-- Item 8: 등록사항 -->
+    <text x="0" y="455" font-weight="bold">8. 등록사항</text>
+    <text x="215" y="455" font-weight="bold">저작자 : 지속가능경영연구원 대표 신기욱,</text>
+    <text x="215" y="479" font-weight="bold">창작 : 2026.02.05</text>
+  </g>
+
+  <!-- ==================== LEGAL CERTIFICATION CLAUSE ==================== -->
+  <text x="400" y="830" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#000000" font-family="'Nanum Myeongjo', 'Batang', serif">
+    「저작권법」 제53조에 따라 위와 같이 등록되었음을 증명합니다.
+  </text>
+
+  <!-- Issue Date -->
+  <text x="400" y="885" text-anchor="middle" font-size="16" font-weight="bold" fill="#000000" font-family="'Nanum Myeongjo', 'Batang', serif" letter-spacing="3">
+    2026년 04월 07일
+  </text>
+
+  <!-- ==================== ISSUING AUTHORITY & SEAL ==================== -->
+  <g transform="translate(400, 955)">
+    <!-- Authority text -->
+    <text x="-45" y="0" text-anchor="middle" font-size="29" font-weight="900" fill="#000000" font-family="'Nanum Myeongjo', 'Batang', serif" letter-spacing="12">
+      한국저작권위원회
+    </text>
+
+    <!-- Official Red Vermilion Square Seal (한국저작권위원회위원장의인) -->
+    <g transform="translate(135, -38)" filter="url(#seal-shadow)">
+      <rect x="0" y="0" width="74" height="74" rx="4" fill="#fee2e2" stroke="#b91c1c" stroke-width="4" />
+      <rect x="4" y="4" width="66" height="66" fill="none" stroke="#dc2626" stroke-width="1.2" opacity="0.7" />
+      <!-- Seal Text (4 vertical columns from right to left) -->
+      <g fill="#991b1b" font-family="'Batang', 'Nanum Myeongjo', serif" font-weight="900" font-size="14.5" text-anchor="middle">
+        <!-- Column 1 (Right): 한국저 -->
+        <text x="55" y="24">한</text>
+        <text x="55" y="45">국</text>
+        <text x="55" y="65">저</text>
+
+        <!-- Column 2: 작권위 -->
+        <text x="40" y="24">작</text>
+        <text x="40" y="45">권</text>
+        <text x="40" y="65">위</text>
+
+        <!-- Column 3: 원회위 -->
+        <text x="25" y="24">원</text>
+        <text x="25" y="45">회</text>
+        <text x="25" y="65">위</text>
+
+        <!-- Column 4 (Left): 원장의인 -->
+        <text x="10" y="24">원</text>
+        <text x="10" y="45">장</text>
+        <text x="10" y="65">인</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== BOTTOM 2D SECURITY BARCODES ==================== -->
+  <g transform="translate(48, 1030)">
+    <!-- Block 1 -->
+    <g transform="translate(0, 0)">
+      <polygon points="0,-9 9,-9 0,0" fill="#334155" />
+      <rect width="220" height="58" fill="#0f172a" />
+      <rect x="2" y="2" width="216" height="54" fill="#ffffff" opacity="0.08" />
+      <!-- Simulated 2D Data Matrix lines -->
+      <line x1="0" y1="10" x2="220" y2="10" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="2 2" opacity="0.6" />
+      <line x1="0" y1="20" x2="220" y2="20" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="4 1 2 3" opacity="0.5" />
+      <line x1="0" y1="30" x2="220" y2="30" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="1 3 3 1" opacity="0.7" />
+      <line x1="0" y1="40" x2="220" y2="40" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3 2 1 4" opacity="0.5" />
+      <line x1="0" y1="50" x2="220" y2="50" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="2 4 4 1" opacity="0.6" />
+    </g>
+
+    <!-- Block 2 -->
+    <g transform="translate(242, 0)">
+      <polygon points="0,-9 9,-9 0,0" fill="#334155" />
+      <rect width="220" height="58" fill="#0f172a" />
+      <rect x="2" y="2" width="216" height="54" fill="#ffffff" opacity="0.08" />
+      <line x1="0" y1="8" x2="220" y2="8" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3 2 1 2" opacity="0.6" />
+      <line x1="0" y1="18" x2="220" y2="18" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="1 4 2 2" opacity="0.5" />
+      <line x1="0" y1="28" x2="220" y2="28" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="4 1 3 2" opacity="0.7" />
+      <line x1="0" y1="38" x2="220" y2="38" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="2 3 1 3" opacity="0.5" />
+      <line x1="0" y1="48" x2="220" y2="48" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3 3 2 1" opacity="0.6" />
+    </g>
+
+    <!-- Block 3 -->
+    <g transform="translate(484, 0)">
+      <polygon points="0,-9 9,-9 0,0" fill="#334155" />
+      <rect width="220" height="58" fill="#0f172a" />
+      <rect x="2" y="2" width="216" height="54" fill="#ffffff" opacity="0.08" />
+      <line x1="0" y1="12" x2="220" y2="12" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="2 2 4 1" opacity="0.6" />
+      <line x1="0" y1="22" x2="220" y2="22" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="4 2 1 3" opacity="0.5" />
+      <line x1="0" y1="32" x2="220" y2="32" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="1 3 2 4" opacity="0.7" />
+      <line x1="0" y1="42" x2="220" y2="42" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3 1 3 2" opacity="0.5" />
+      <line x1="0" y1="52" x2="220" y2="52" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="2 4 1 2" opacity="0.6" />
+    </g>
+  </g>
+</svg>

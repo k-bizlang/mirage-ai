@@ -101,7 +101,7 @@ const MIRAGE_SYSTEM_INSTRUCTION = `
 - '데이터 학습', '알고리즘', '프롬프트' 등 시스템 기술 용어를 고객에게 절대 사용하지 마라.
 - 회사 공식 브랜드명은 **'[MIRAGE AI]'** (또는 에이아이파트너스 MIRAGE AI)이다.
 - 대표자명: 최호열, 대표전화: 010-8267-3733, 이메일: mymirage1@naver.com.
-- 공식 상담 AI 직접 시작 주소: https://sites.google.com/view/ai-smart-agent/home (구글 계정으로 로그인 후 1:1 맞춤 상담 시작).
+- 공식 24시간 AI 상담 직접 시작 주소: https://gemini.google.com/gem/1Z7FOmWQLR_iMcF2XkgkTUZMO5YeovToZ?usp=sharing (24시간 AI 실시간 1:1 맞춤 상담 대화 시작).
 - 상품 구성 및 비용:
   * 보급형: 월 159,000원 (기본 고객응대, 회사/서비스 안내, FAQ 등록, 기본 시나리오, 소규모/1인 사업자용)
   * 표준형(추천): 월 220,000원 (보급형 포함, 업종별 맞춤 상담, 시나리오 확대, 세부 안내, 지속 업데이트, 일반 사업장 추천)
@@ -231,7 +231,7 @@ app.post("/api/chat", async (req, res) => {
     return res.json({
       reply: `[MIRAGE AI] 솔루션은 월 159,000원(보급형)부터 합리적인 도입이 가능합니다.
 사업장 규모와 상담 시나리오 복잡도에 따라 표준형(월 220,000원, 추천 상품) 및 고급형(월 295,000원) 중 최적 모델로 세팅됩니다.
-[MIRAGE AI] 공식 홈페이지(https://sites.google.com/view/ai-smart-agent/home)에서 구글 계정으로 접속하시면 1:1 맞춤 견적 및 상세 진단을 바로 확인하실 수 있습니다.`,
+[MIRAGE AI] 공식 24시간 AI 상담 대화방(https://gemini.google.com/gem/1Z7FOmWQLR_iMcF2XkgkTUZMO5YeovToZ?usp=sharing)에서 1:1 맞춤 견적 및 상세 진단을 바로 확인하실 수 있습니다.`,
     });
   }
 
@@ -275,7 +275,7 @@ app.post("/api/chat", async (req, res) => {
 - 대표자: 최호열
 - 직통 전화: 010-8267-3733
 - 공식 이메일: mymirage1@naver.com
-- 구글 상담 AI 링크: https://sites.google.com/view/ai-smart-agent/home
+- 24시간 AI 상담 실시간 대화: https://gemini.google.com/gem/1Z7FOmWQLR_iMcF2XkgkTUZMO5YeovToZ?usp=sharing
 홈페이지 하단의 [무료 상담 신청] 폼을 작성해 주시면 업종별 맞춤 시연 데모를 무료로 제공해 드립니다.`,
     });
   }
@@ -284,19 +284,23 @@ app.post("/api/chat", async (req, res) => {
   if (turnCount <= 1) {
     return res.json({
       reply: `[MIRAGE AI]는 귀사의 24시간 고객 응대 자동화와 상담 효율 극대화를 위한 전담 비즈니스 솔루션입니다.
-영업시간 외 야간 및 주말에도 반복 문의를 즉시 해결하여 고객 만족도와 예약 전환율을 극대화합니다.
+영업시간 외 야간 및 주말에도 반복 문의를 즉시 해결하여 고객 만족도와 상담 전환율을 극대화합니다.
 "[MIRAGE AI]는 귀사의 사내 문서와 FAQ를 실시간 연동하는 비즈니스 특화 AI 상담원입니다. 화면 하단에 '도입 비용', '병원 데모', '학원 데모' 등 궁금하신 주제를 입력해 주시면 즉시 상세 안내를 도와드리겠습니다."`,
     });
   }
 
   return res.json({
     reply: `문의해 주신 비즈니스 요건에 대해 [MIRAGE AI] 맞춤형 엔진으로 최적의 설계를 지원합니다.
-자주 묻는 질문(FAQ) 등록, 상품 안내, 실시간 예약 연동까지 원스톱으로 세팅해 드립니다.
+자주 묻는 질문(FAQ) 등록, 상품 안내, 실시간 문의 접수까지 원스톱으로 세팅해 드립니다.
 구체적인 기업별 도입 레퍼런스나 맞춤형 기술 제안서가 필요하시면 010-8267-3733(최호열 대표)으로 언제든 연락 주시기 바랍니다.`,
   });
 });
 
 async function startServer() {
+  // Serve public assets directly
+  const publicPath = path.join(process.cwd(), "public");
+  app.use(express.static(publicPath));
+
   // Vite middleware in dev
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
